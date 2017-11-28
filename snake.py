@@ -1,7 +1,7 @@
 '''
 Snake game.
 Authors:
-<insert the names of your teammates here>
+Donald Conteh , Kedar Prasad Timalsena, Charnelle Kaham
 '''
 
 import pygame
@@ -257,3 +257,4 @@ def start_game():
 
 # Start the snake game.
 start_game()
+
