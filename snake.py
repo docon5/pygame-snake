@@ -108,9 +108,10 @@ def create_food_position():
     The second element is the y position. Must be an int between 0 and GRID_HEIGHT - 1, inclusively.
     """
 
-    return
+    food_position = (random.randint(0, GRID_WIDTH -1), random.randint(0, GRID_HEIGHT - 1))
 
 
+    return food_position
 
 def snake_ate_food(snake, food):
 
@@ -119,10 +120,10 @@ def snake_ate_food(snake, food):
     food - 2-tuple representing the position in the grid of the food
     This function should return True if the head of the snake is in the same position as food.
     """
-
+    for index in range(len(snake)):
+        if snake[index] == food:
+            return True
     return False
-
-
 
 def snake_ran_out_of_bounds(snake):
 
