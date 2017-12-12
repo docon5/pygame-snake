@@ -83,17 +83,25 @@ def get_direction(previous_direction, event_key):
     """
 
     if event_key == pygame.K_LEFT:
+        if previous_direction == DIRECTION_RIGHT:
+            return DIRECTION_RIGHT
 
         return DIRECTION_LEFT
 
     elif event_key == pygame.K_UP:
-
+        if previous_direction == DIRECTION_DOWN:
+            return DIRECTION_DOWN
+            
         return DIRECTION_UP
     
     elif event_key == pygame.K_RIGHT:
+        if previous_dIrection == DIRECTION_LEFT:
+            return DIRECTION_LEFT
         return DIRECTION_RIGHT
     
     elif event_key == pygame.K_DOWN:
+        if previos_direction == DIRECTION_UP:
+            return DIRECTION_UP
         return DIRECTION_DOWN
 
     return previous_direction
@@ -135,6 +143,8 @@ def snake_ran_out_of_bounds(snake):
         for edges in range(len(snake[edge])):
             if snake[edge][edges] == 30:
                 return True
+            elif snake[edge][edges] == -1:
+                return True 
     return False
         
 
@@ -260,7 +270,9 @@ def draw_food(screen, food):
 def draw_snake(screen, snake):
 
     """Draw the snake onto the screen.
+
     Do not edit this function.
+
     """
 
     color = COLOR_SNAKE_HEAD
@@ -280,7 +292,9 @@ def draw_snake(screen, snake):
 def draw_game_over(screen, game_over_text):
 
     """Draw game_over_text in the middle of the screen.
+
     Do not edit this function.
+
     """
 
     font_size = 50
@@ -302,7 +316,9 @@ def draw_game_over(screen, game_over_text):
 def draw_screen(screen, snake, food, game_over):
 
     """Draw the snake, food and maybe the game over message to the screen.
+
     Do not edit this function.
+
     """
 
     # Fill the screen with the background color.
@@ -340,8 +356,11 @@ def draw_screen(screen, snake, food, game_over):
 def process_events(direction, game_over):
 
     """Returns the new direction and whether the game should reset after processing
+
     all mouse and keyboard input events.
+
     Do not edit this function.
+
     """
 
     should_reset_game = False
@@ -377,7 +396,9 @@ def process_events(direction, game_over):
 def start_game():
 
     """Starts the snake game. 
+
     Do not edit this function.
+
     """
 
     # Initialize the pygame module.
@@ -471,8 +492,6 @@ def start_game():
         # does not progress too quickly.
 
         clock.tick(get_snake_speed(snake))
-
-
 
 # Start the snake game.
 
