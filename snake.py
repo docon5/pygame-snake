@@ -95,12 +95,12 @@ def get_direction(previous_direction, event_key):
         return DIRECTION_UP
     
     elif event_key == pygame.K_RIGHT:
-        if previous_dIrection == DIRECTION_LEFT:
+        if previous_direction == DIRECTION_LEFT:
             return DIRECTION_LEFT
         return DIRECTION_RIGHT
     
     elif event_key == pygame.K_DOWN:
-        if previos_direction == DIRECTION_UP:
+        if previous_direction == DIRECTION_UP:
             return DIRECTION_UP
         return DIRECTION_DOWN
 
